@@ -1,6 +1,15 @@
 Rails.application.routes.draw do
   devise_for :users
   root to: "pages#home"
+  
+  get "/cars/:id", to: "pages#show", as: :show_cars
+  get "/cars/:user_id/:car_id/bookings/new", to: "bookings#new"
+  post "/cars/:user_id/:car_id/bookings", to: "bookings#create"
+  delete "/cars/:user_id/:car_id/bookings/:id", to: "bookings#destroy"
+  get "/cars/:user_id/bookings", to: "bookings#index", as: :display_bookings
+  patch "/cars/:user_id/bookings/accept", to: "bookings#accept"
+  patch "/cars/:user_id/bookings/decline", to: "bookings#decline"
+
   get "/cars", to: "pages#index"
   get "/cars/new", to: "pages#new"
   post "/cars", to: "pages#create"
