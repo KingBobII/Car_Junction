@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users
   root to: "pages#home"
-  get "/cars", to: "pages#index"
   get "/cars/new", to: "pages#new"
   post "/cars", to: "pages#create"
   get "/cars/:id", to: "pages#show"
