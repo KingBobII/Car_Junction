@@ -9,11 +9,9 @@ Rails.application.routes.draw do
   get "/cars/:user_id/bookings", to: "bookings#index", as: :display_bookings
   patch "/cars/:user_id/bookings/accept", to: "bookings#accept"
   patch "/cars/:user_id/bookings/decline", to: "bookings#decline"
-
   get "/cars", to: "pages#index"
   get "/cars/new", to: "pages#new"
   post "/cars", to: "pages#create"
-  get "/cars/:id", to: "pages#show"
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
