@@ -1,28 +1,42 @@
 class BookingsController < ApplicationController
-  before_action :set_booking, only: %i[accept reject create destroy]
-  def new
-    @booking = Booking.new
-  end
 
   def index
     @bookings = Booking.all
+    @current_user_bookings = current_user.bookings
+  end
+
+  def show
+    @car = Car.find(params[:car_id])
+    @booking = Booking.find(params[:id])
+    @booking.car = @car
+    @booking.user = current_user
+  end
+
+  def new
+    @car = Car.find(params[:car_id])
+    @booking = Booking.new
   end
 
   def create
-    @booking = Booking.new(booking_params)
+    @booking = current_user.bookings.new(booking_params)
     @car = Car.find(params[:car_id])
     @booking.car = @car
     @booking.user = current_user
     if @booking.save
-      redirect_to show_cars_path, notice: 'Booking successfully created'
+      redirect_to bookings_path(current_user), notice: 'Booking successfully created'
     else
-      @bookings = @car.bookings
-      render "cars/show", status: :unprocessable_entity
+      render :new, status: :unprocessable_entity
     end
   end
 
   def destroy
+    @booking = Booking.find(params[:id])
     @booking.destroy
+
+    respond_to do |format|
+      format.html { redirect_to bookings_path, notice: "Booking was successfully deleted." }
+      format.json { head :no_content }
+    end
   end
 
   def accept
@@ -43,11 +57,7 @@ class BookingsController < ApplicationController
 
   private
 
-  def set_booking
-    @booking = Booking.find(params[:id])
-  end
-
   def booking_params
-    params.require(:booking).permit(:status, :start_date, :end_date, :user_id, :car_id)
+    params.require(:booking).permit(:start_date, :end_date, :user_id, :car_id)
   end
 end
