@@ -1,0 +1,47 @@
+<div class="container mt-4">
+  <div class="card-body text-center">
+    <h1 >Upload your car</h1>
+  </div>
+  <div class="row">
+    <div class="col-md-6 offset-md-3">
+      <div class="card">
+        <div class="card-body">
+          <%= form_with(model: @car, local: true, html: { multipart: true }) do |form| %>
+            <div class="mb-3">
+              <%= form.label :name, class: "form-label" %>
+              <%= form.text_field :name, class: "form-control" %>
+            </div>
+
+            <div class="mb-3">
+              <%= form.label :year, class: "form-label" %>
+              <%= form.select :year, (Date.today.year - 50..Date.today.year).to_a.reverse, { include_blank: 'Select year' }, class: "form-select" %>
+            </div>
+
+            <div class="mb-3">
+              <%= form.label :mileage, class: "form-label" %>
+              <div class="input-group">
+                <%= form.text_field :mileage, class: "form-control" %>
+              </div>
+            </div>
+
+            <div class="mb-3">
+              <%= form.label :review, class: "form-label" %>
+              <%= form.text_area :review, class: "form-control" %>
+            </div>
+
+            <div class="mb-3">
+              <%= form.label :registration_number, class: "form-label" %>
+              <%= form.text_field :registration_number, class: "form-control" %>
+            </div>
+            <div class="form-group">
+              <%= form.label :image, class: 'form-label' %>
+              <%= form.file_field :image, class: 'form-control' %>
+            </div>
+
+              <%= form.submit "Upload Car", class: "btn btn-primary" %>
+
+
+          <% end %>
+    </div>
+  </div>
+</div>
