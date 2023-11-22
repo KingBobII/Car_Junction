@@ -1,2 +1,13 @@
-<h1>Bookings#index</h1>
-<p>Find me in app/views/bookings/index.html.erb</p>
+<div class="container my-5">
+  <h1>Your Bookings</h1>
+  <p>Here you are able to view your bookings and accept or decline</p>
+  <% @current_user_bookings.each do |booking| %>
+    <%= link_to car_booking_path(booking.car, booking) do %>
+      <div class="car-card my-3">
+        <h3> <%= booking.car.name%> </h3>
+        <p> <%= "From: #{booking.start_date}"%></p>
+        <p> <%= "To: #{booking.end_date} " %></p>
+      </div>
+    <% end %>
+  <% end %>
+</div>
