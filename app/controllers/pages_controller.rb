@@ -4,15 +4,12 @@ class PagesController < ApplicationController
   def home
     @cars = Car.all
   end
-  
+
   def show
     @car = Car.find(params[:id])
     @booking = Booking.new
   end
 
-  def index
-
-  end
   def show
     @car = Car.find(params[:id])
     @booking = Booking.new
@@ -35,5 +32,4 @@ class PagesController < ApplicationController
   def car_params
     params.require(:car).permit(:name, :year, :review, :registration_number, :image, :mileage)
   end
-
 end
