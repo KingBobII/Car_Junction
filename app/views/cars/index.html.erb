@@ -5,7 +5,7 @@
     <%= link_to car_path(car) do %>
       <div class="car-card my-3">
         <% if car.image.present? %>
-          <%= image_tag car.image, alt: "Car Image" %>
+          <%= cl_image_tag car.image.key, alt: "Car Image" %>
         <% else %>
           <p>No image available</p>
         <% end %>
