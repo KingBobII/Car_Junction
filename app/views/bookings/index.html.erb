@@ -1,13 +1,38 @@
-<div class="container my-5">
-  <h1>Your Bookings</h1>
-  <p>Here you are able to view your bookings and accept or decline</p>
-  <% @current_user_bookings.each do |booking| %>
-    <%= link_to car_booking_path(booking.car, booking) do %>
-      <div class="car-card my-3">
-        <h3> <%= booking.car.name%> </h3>
-        <p> <%= "From: #{booking.start_date}"%></p>
-        <p> <%= "To: #{booking.end_date} " %></p>
-      </div>
+<div class="container">
+  <div class="container my-5">
+    <h1>Bookings made by me:</h1>
+    <p>View all bookings:</p>
+    <% @current_user_bookings.each do |booking| %>
+      <%= link_to booking_path(booking) do %>
+        <div class="car-card card-product my-3">
+          <% if booking.car.image.attached? %>
+            <%= image_tag booking.car.image, class: 'img-fluid', alt: 'Car Image' %>
+          <% else %>
+            <p>No image available</p>
+          <% end %>
+          <h3> <%= booking.car.name%> </h3>
+          <p> <%= "From: #{booking.start_date.strftime('%a %d %b %Y')}"%></p>
+          <p> <%= "To: #{booking.end_date.strftime('%a %d %b %Y')} " %></p>
+        </div>
+      <% end %>
     <% end %>
-  <% end %>
+  </div>
+  <div class="container my-5">
+    <h1>Bookings made for my cars:</h1>
+    <p>View all bookings:</p>
+    <% @user_car_bookings.each do |booking| %>
+      <%= link_to booking_path(booking) do %>
+        <div class="car-card card-product my-3">
+          <% if booking.car.image.attached? %>
+            <%= image_tag booking.car.image, class: 'img-fluid', alt: 'Car Image' %>
+          <% else %>
+            <p>No image available</p>
+          <% end %>
+          <h2> <%= booking.car.name%> </h2>
+          <p> <%= "From: #{booking.start_date.strftime('%a %d %b %Y')}"%></p>
+          <p> <%= "To: #{booking.end_date.strftime('%a %d %b %Y')} " %></p>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
 </div>

@@ -1,2 +1,12 @@
 // Specific CSS for your home-page
+.car-image {
+  width: 100%;
+  height: 500px;
+  object-fit: cover;
+  border-radius: 10px;
+}
 
+.footer{
+  background-color: #374A7D;
+  color: white;
+}
