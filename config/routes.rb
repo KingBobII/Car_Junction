@@ -3,10 +3,10 @@ Rails.application.routes.draw do
   root to: "cars#index"
 
   resources :cars do
-    resources :bookings, only: [:new, :create, :show]
+    resources :bookings, only: [:new, :create]
   end
 
-  resources :bookings, only: [:index, :destroy]
+  resources :bookings, only: [:index, :destroy, :show]
 
   # get "/cars/new", to: "pages#new"
   # get "/cars/:id", to: "pages#show", as: :show_cars
