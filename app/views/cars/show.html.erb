@@ -1,5 +1,9 @@
 <div class="container my-5">
   <h1><%= @car.name %></h1>
-
-  <%= link_to "Book this car", new_car_booking_path(@car) %>
+  <div class="car-card my-3">
+    <%= link_to "Book this car", new_car_booking_path(@car) %>
+  </div>
+  <div class="car-card my-3">
+    <%= link_to "Back to Cars", cars_path %>
+  </div>
 </div>

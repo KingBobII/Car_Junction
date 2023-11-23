@@ -43,9 +43,6 @@ toyota_file = URI.open(toyota_url)
 
 #toyota.photo.attach
 
-
-
-
 honda = Car.create!(name: 'Honda Civic', year: 2023, review: 'Good fuel efficiency', registration_number: 124, image: '/home/jessecesar/code/JesseCesar/Car_Junction/app/assets/images/Honda_civic.jpg',
   mileage: '1000 miles', user_id: User.second.id)
 
