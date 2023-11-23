@@ -41,7 +41,7 @@ toyota_url = "https://images.unsplash.com/photo-1624578571415-09e9b1991929?q=80&
 
 toyota_file = URI.open(toyota_url)
 
-toyota.photo.attach
+#toyota.photo.attach
 
 
 
