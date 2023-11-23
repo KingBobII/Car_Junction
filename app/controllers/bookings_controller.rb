@@ -1,8 +1,13 @@
 class BookingsController < ApplicationController
-
   def index
     @bookings = Booking.all
     @current_user_bookings = current_user.bookings
+    @user_car_bookings = Booking.joins(:car).where(cars: { user_id: current_user.id })
+    # current_user.cars.each do |car|
+    #   @user_car_bookings << car.bookings
+    # end
+    # @user_car_bookings = @user_car_bookings.flatten
+    puts "DEBUG: @user_car_bookings=#{@user_car_bookings.inspect}"
   end
 
   def show
