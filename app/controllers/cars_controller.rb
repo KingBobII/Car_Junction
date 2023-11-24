@@ -30,6 +30,13 @@ class CarsController < ApplicationController
   end
 
   def destroy
+    @car = Car.find(params[:id])
+    @car.destroy
+
+    respond_to do |format|
+      format.html { redirect_to bookings_path, notice: "Car was successfully deleted." }
+      format.json { head :no_content }
+    end
   end
 
   private
