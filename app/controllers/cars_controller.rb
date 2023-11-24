@@ -8,6 +8,7 @@ class CarsController < ApplicationController
 
   def index
     @user_cars = current_user.cars
+    # some note
   end
 
   # def index_all
