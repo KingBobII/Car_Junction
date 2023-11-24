@@ -34,9 +34,10 @@
         </div>
         <div class="container" id="accept-reject-buttons">
           <!-- Display booking details -->
-          <p class="d-inline"><%= booking.status %></p>
+          <p class="d-inline">STATUS: <%= booking.status.upcase %></p>
+          <br>
           <%= link_to 'Accept', accept_booking_path(booking.car, booking), data: {turbo_method: :patch}, class: 'btn btn-success' %>
-          <%= link_to 'Reject',  reject_booking_path(booking.car, booking), data: {turbo_method: :patch}, class: 'btn btn-danger' %>
+          <%= link_to 'Reject', reject_booking_path(booking.car, booking), data: {turbo_method: :patch}, class: 'btn btn-danger' %>
         </div>
       <% end %>
     <% end %>

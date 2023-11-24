@@ -2,9 +2,17 @@ class CarsController < ApplicationController
   before_action :set_car, only: %i[show edit update destroy]
   before_action :authenticate_user!, except: [:index]
 
-  def index
-    @cars = Car.all
+  def index_all
+    @cars_all = Car.all
   end
+
+  def index
+    @user_cars = current_user.cars
+  end
+
+  # def index_all
+  #   @cars = Car.all
+  # end
 
   def show
   end
@@ -34,7 +42,7 @@ class CarsController < ApplicationController
     @car.destroy
 
     respond_to do |format|
-      format.html { redirect_to bookings_path, notice: "Car was successfully deleted." }
+      format.html { redirect_to cars_path, notice: "Car was successfully deleted." }
       format.json { head :no_content }
     end
   end
