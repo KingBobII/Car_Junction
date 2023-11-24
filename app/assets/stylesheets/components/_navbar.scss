@@ -8,5 +8,9 @@
 }
 
 .navbar-lewagon .navbar-brand img {
-  width: 40px;
+  width: 150px;
+  height: 200px;
+}
+.navbar .dropdown-toggle, .navbar .dropdown-menu a {
+  cursor: pointer;
 }

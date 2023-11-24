@@ -5,7 +5,15 @@
   object-fit: cover;
   border-radius: 10px;
 }
+.grid-container{
+  display: grid; /* or inline-flex */
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 1rem;
 
+}
+// .item {
+//   // order: 2; /* default is 0 */
+// }
 .footer{
   background-color: #374A7D;
   color: white;

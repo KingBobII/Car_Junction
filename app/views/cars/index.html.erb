@@ -1,34 +1,27 @@
 <div class="container">
-<h1>My Cars</h1>
+  <h1><strong>Car Junction</strong></h1>
+  <p>Drive the Experience, Rent the Journey</p>
+  <div class="grid-container">
+    <% @cars.each do |car| %>
+      <%= link_to car_path(car) do %>
+        <div class="car-card">
+          <% if car.image.present? %>
+            <%= cl_image_tag car.image.key,class: "car-image", alt: "Car Image" %>
+          <% else %>
+            <p></p>
+            <%= image_tag "https://res.cloudinary.com/dwft4wv8p/image/upload/v1700750938/Car_Junction_Animated_Logo_resized_vnxmkc.png" %>
+          <% end %>
+          <h3><strong><%= car.name %> (<%= car.year %>)</strong></h3>
+          <div class="card-price">
+            <p><i class="fa-solid fa-money-check-dollar mr-5"></i><%= car.price_per_day %> / day</p>
+            <p><i class="fa-solid fa-gauge"></i><%= car.mileage %> </p>
+          </div>
+          <div class="card-description">
 
-<% if @user_cars.any? %>
-
-    <% @user_cars.each do |car| %>
-    <div class="car-card my-3">
-      <% if car.image.present? %>
-          <%= cl_image_tag car.image.key,class: "car-image", alt: "Car Image" %>
-        <% else %>
-          <p>No image available</p>
-        <% end %>
-    <ul class="cars-list">
-      <li>
-        <h3><strong><%= car.name %></strong></h3>
-      </li>
-      <li>
-        <h5><%= car.year %></h5>
-      </li>
-      <li>
-        <h5><%= car.mileage %></h5>
-      </li>
-      <li>
-        <h5><%= car.price_per_day %></h5>
-      </li>
-      <p><%= car.description %></p>
-      <%= button_to "Delete car", car, method: :delete, class:"btn btn-danger"%>
-    </ul>
-    </div>
+            <p><%= car.description %></p>
+          </div>
+        </div>
+     <% end %>
     <% end %>
-<% else %>
-  <p>No cars found.</p>
-<% end %>
+    </div>
 </div>
