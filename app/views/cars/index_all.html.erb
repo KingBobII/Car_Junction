@@ -1,0 +1,31 @@
+<div class="container">
+  <h1><strong>Car Junction</strong></h1>
+  <p>Drive the Experience, Rent the Journey</p>
+  <% @cars_all.each do |car| %>
+    <%= link_to car_path(car) do %>
+      <div class="car-card my-3">
+        <% if car.image.present? %>
+          <%= cl_image_tag car.image.key,class: "car-image", alt: "Car Image" %>
+        <% else %>
+          <p>No image available</p>
+        <% end %>
+          <ul class="cars-list">
+      <li>
+        <h3><strong><%= car.name %></strong></h3>
+      </li>
+      <li>
+        <h5><%= car.year %></h5>
+      </li>
+      <li>
+        <h5><%= car.mileage %></h5>
+      </li>
+      <li>
+        <h5><%= car.price_per_day %></h5>
+      </li>
+      <p><%= car.description %></p>
+    </ul>
+
+      </div>
+    <% end %>
+  <% end %>
+</div>
