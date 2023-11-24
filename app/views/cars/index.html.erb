@@ -1,27 +1,32 @@
 <div class="container">
-  <h1><strong>Car Junction</strong></h1>
-  <p>Drive the Experience, Rent the Journey</p>
-  <div class="grid-container">
-    <% @cars.each do |car| %>
-      <%= link_to car_path(car) do %>
+  <h1>My Cars</h1>
+  <% if @user_cars.any? %>
+    <div class="grid-container">
+      <% @user_cars.each do |car| %>
         <div class="car-card">
+        <%= link_to car_path(car) do %>
           <% if car.image.present? %>
             <%= cl_image_tag car.image.key,class: "car-image", alt: "Car Image" %>
           <% else %>
-            <p></p>
             <%= image_tag "https://res.cloudinary.com/dwft4wv8p/image/upload/v1700750938/Car_Junction_Animated_Logo_resized_vnxmkc.png" %>
           <% end %>
-          <h3><strong><%= car.name %> (<%= car.year %>)</strong></h3>
-          <div class="card-price">
-            <p><i class="fa-solid fa-money-check-dollar mr-5"></i><%= car.price_per_day %> / day</p>
-            <p><i class="fa-solid fa-gauge"></i><%= car.mileage %> </p>
-          </div>
-          <div class="card-description">
+            <h3><strong><%= car.name %> (<%= car.year %>)</strong></h3>
+            <div class="card-price">
+              <p><i class="fa-solid fa-money-check-dollar mr-5"></i><%= car.price_per_day %> / day</p>
+              <p><i class="fa-solid fa-gauge"></i><%= car.mileage %> </p>
+            </div>
+            <div class="card-description">
 
-            <p><%= car.description %></p>
-          </div>
+              <p><%= car.description %></p>
+            </div>
+              <%# <%= button_to "Delete car", car, method: :delete, class:"btn btn-danger"%>
+              <%= link_to "Delete car", car_path(car), data: {turbo_method: :delete}, class: "btn btn-danger" %>
+              <%= link_to "My Bookings", bookings_path, class: "btn btn-primary" %>
+            </div>
+        <% end %>
+      <% end %>
         </div>
-     <% end %>
-    <% end %>
-    </div>
+  <% else %>
+    <p>No cars found.</p>
+  <% end %>
 </div>

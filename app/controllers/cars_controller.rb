@@ -10,6 +10,10 @@ class CarsController < ApplicationController
     @user_cars = current_user.cars
   end
 
+  # def index_all
+  #   @cars = Car.all
+  # end
+
   def show
   end
 
