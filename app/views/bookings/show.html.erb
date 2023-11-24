@@ -2,7 +2,7 @@
   <%# <h1><%= "Hello, #{@user.first_name}, here are the details for your listing:" %>
   <%# </h1> %>
   <div class="container mt-2">
-    <div class="car-card card-product my-3">
+    <div class="car-card card-product my-3 booking-section width:70% ">
       <h2><%= "Hello there, #{current_user.first_name}" %></h2>
       <p><%= "Your booking for #{@car.name} begins on #{@booking.start_date.strftime('%a %d %b %Y')} and will end on #{@booking.end_date.strftime('%a %d %b %Y')} ." %></p>
       <p><%=" The total price per day for this booking is #{@booking.price_per_day} EUR"%></p>

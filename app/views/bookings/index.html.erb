@@ -1,5 +1,5 @@
-<div class="container">
-  <div class="container my-5">
+<div class="flex-container">
+  <div class="container my-5 booking-section">
     <h1>Bookings made by me:</h1>
     <p>View all bookings:</p>
     <% @current_user_bookings.each do |booking| %>
@@ -17,7 +17,7 @@
       <% end %>
     <% end %>
   </div>
-  <div class="container my-5">
+  <div class="container my-5  booking-section">
     <h1>Bookings made for my cars:</h1>
     <p>View all bookings:</p>
     <% @user_car_bookings.each do |booking| %>
@@ -31,6 +31,12 @@
           <h2> <%= booking.car.name%> </h2>
           <p> <%= "From: #{booking.start_date.strftime('%a %d %b %Y')}"%></p>
           <p> <%= "To: #{booking.end_date.strftime('%a %d %b %Y')} " %></p>
+        </div>
+        <div class="container" id="accept-reject-buttons">
+          <!-- Display booking details -->
+          <p class="d-inline"><%= booking.status %></p>
+          <%= link_to 'Accept', accept_booking_path(booking.car, booking), data: {turbo_method: :patch}, class: 'btn btn-success' %>
+          <%= link_to 'Reject',  reject_booking_path(booking.car, booking), data: {turbo_method: :patch}, class: 'btn btn-danger' %>
         </div>
       <% end %>
     <% end %>
