@@ -1,6 +1,6 @@
 class BookingsController < ApplicationController
   def index
-    # @bookings = Booking.all
+    @bookings = Booking.all
     @current_user_bookings = current_user.bookings
     @user_car_bookings = Booking.joins(:car).where(cars: { user_id: current_user.id })
     # current_user.cars.each do |car|
