@@ -37,7 +37,7 @@ toyota = Car.new(name: 'Toyota Camry',
                  registration_number: 123,
                  mileage: '2000 miles',
                  user: john,
-                price_per_day: "555 ZAR")
+                 price_per_day: "555 ZAR")
 toyota_url = "https://images.unsplash.com/photo-1624578571415-09e9b1991929?q=80&w=2790&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
 
 toyota_file = URI.open(toyota_url)
@@ -51,7 +51,7 @@ lamborghini = Car.new(name: 'Lamborghini Urus',
                       registration_number: 123,
                       mileage: '20 km',
                       user: john,
-                      price_per_day: "300 ZAR")
+                      price_per_day: "80 000 ZAR")
 lamborghini_url = "https://cdni.autocarindia.com/Utils/ImageResizer.ashx?n=https://cdni.autocarindia.com/ExtraImages/20221019114208_Urus_Performante_Giallo_Inti_Track_HIGH_Z9A2323.jpg&w=726&h=482&q=75&c=1"
 
 lamborghini_file = URI.open(lamborghini_url)
@@ -65,7 +65,7 @@ ferrari = Car.new(name: 'Ferrari Pista',
                   registration_number: 123,
                   mileage: '20 km',
                   user: john,
-                  price_per_day: "455 ZAR")
+                  price_per_day: "96 000 ZAR")
 ferrari_url = "https://themastercylinderblog.files.wordpress.com/2021/08/dsc_0039-1.jpg"
 
 ferrari_file = URI.open(ferrari_url)
@@ -79,7 +79,7 @@ koenigsegg = Car.new(name: 'Koenigsegg Agera RS',
                      registration_number: 123,
                      mileage: '50 km',
                      user: john,
-                     price_per_day: "550 ZAR")
+                     price_per_day: "136 500 ZAR")
 koenigsegg_url = "https://e1.pxfuel.com/desktop-wallpaper/643/17/desktop-wallpaper-best-5-koenigsegg-on-hip-koenigsegg-agera-rs.jpg"
 
 koenigsegg_file = URI.open(koenigsegg_url)
@@ -93,7 +93,7 @@ svj = Car.new(name: 'svj',
               registration_number: 123,
               mileage: '50 km',
               user: john,
-              price_per_day: "400 ZAR")
+              price_per_day: "109 000 ZAR")
 svj_url = "https://www.alainclass.com/wp-content/uploads/2019/04/1170.jpg"
 
 svj_file = URI.open(svj_url)
@@ -105,7 +105,7 @@ puts "creating bookings"
 Booking.create(
   user: john,
   car: toyota,
-  price_per_day: 50.0,
+  price_per_day: 500.0,
   start_date: Date.today,
   end_date: Date.today + 5.days
 )
@@ -113,7 +113,7 @@ Booking.create(
 Booking.create(
   user: john,
   car: ferrari,
-  price_per_day: 40.0,
+  price_per_day: 96000.0,
   start_date: Date.today + 2.days,
   end_date: Date.today + 7.days
 )
@@ -121,7 +121,7 @@ Booking.create(
 Booking.create(
   user: john,
   car: lamborghini,
-  price_per_day: 45.0,
+  price_per_day: 109000.0,
   start_date: Date.today + 1.day,
   end_date: Date.today + 6.days
 )
