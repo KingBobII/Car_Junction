@@ -48,3 +48,28 @@
 //   height: 75%;
 //   object-fit: cover;
 // }
+.card{
+ display: flex;
+ flex-direction: row;
+ align-items: flex-start;
+}
+.flex-container {
+  display: flex;
+  justify-content: space-between;
+  // flex-wrap: wrap;
+  gap: 20px; /* Adjust the gap between sections */
+}
+
+.booking-section {
+  width: 45%; /* Adjust the width of each section */
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add a subtle box shadow */
+  background-color: #fff; /* Adjust the background color as needed */
+}
+
+/* Add hover effect for a more interactive feel */
+.booking-section:hover {
+  transform: translateY(-5px);
+  transition: transform 0.3s ease;
+}

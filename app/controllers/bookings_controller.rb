@@ -45,18 +45,20 @@ class BookingsController < ApplicationController
   end
 
   def accept
+    @booking = Booking.find(params[:id])
     if @booking.update!(status: 1)
-      redirect_to display_bookings_path, notice: 'Booking accepted'
+      redirect_to bookings_path, notice: 'Booking accepted'
     else
-      redirect_to display_bookings_path, notice: 'Booking could not be accepted - please try again'
+      redirect_to bookings_path, notice: 'Booking could not be accepted - please try again'
     end
   end
 
   def reject
+    @booking = Booking.find(params[:id])
     if @booking.update!(status: 2)
-      redirect_to display_bookings_path, notice: 'Booking rejected'
+      redirect_to bookings_path, notice: 'Booking rejected'
     else
-      redirect_to display_bookings_path, notice: 'Booking could not be rejected - please try again'
+      redirect_to bookings_path, notice: 'Booking could not be rejected - please try again'
     end
   end
 
