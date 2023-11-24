@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
   devise_for :users
   root to: "cars#index_all"
+
   get '/my_cars', to: "cars#index"
+
 
   patch "/cars/:car_id/bookings/:id/accept(.:format) ", to: "bookings#accept", as: :accept_booking
   patch "/cars/:car_id/bookings/:id/reject(.:format)", to: "bookings#reject", as: :reject_booking

@@ -8,7 +8,6 @@ class CarsController < ApplicationController
 
   def index
     @user_cars = current_user.cars
-    # some note
   end
 
   # def index_all
@@ -46,6 +45,10 @@ class CarsController < ApplicationController
       format.html { redirect_to cars_path, notice: "Car was successfully deleted." }
       format.json { head :no_content }
     end
+  end
+
+  def my_cars
+    @cars.user = current_user
   end
 
   private
